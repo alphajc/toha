@@ -2,13 +2,13 @@
   <div class="container pt-5">
     <div class="row text-left">
       <div class="col-md-4 col-sm-12">
-        <h5>Navigation</h5>
+        <h5>导航</h5>
         {{ if .Site.Data.sections }}
         <ul>
           {{- range sort .Site.Data.sections "section.weight" }}
             {{ if and (.section.enable) (.section.showOnNavbar)}}
             <li class="nav-item">
-              <a class="smooth-scroll" href="#{{ replace (lower .section.name) " " "-" }}">{{ .section.name }}</a>
+              <a class="smooth-scroll" href="/#{{ replace (lower .section.name) " " "-" }}">{{ .section.title }}</a>
             </li>
             {{ end }}
           {{- end }}
@@ -17,7 +17,7 @@
 
       </div>
       <div class="col-md-4 col-sm-12">
-        <h5>Contact Me</h5>
+        <h5>联系我</h5>
         <ul>
           {{ range $key,$value:=.Site.Params.author.contactInfo }}
           <li><span>{{ title $key }}: </span> <span>{{ $value }}</span></li>
@@ -26,7 +26,7 @@
       </div>
       <div class="col-md-4 col-sm-12">
         <!-- <h5>Newsletter</h5> -->
-        <p>Stay up to date with email notification</p>
+        <p>接收最新的邮件通知</p>
         <form>
           <div class="form-group">
             <input
@@ -34,13 +34,13 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder="输入邮箱"
             />
             <small id="emailHelp" class="form-text text-muted"
-              >We'll never share your email with anyone else.</small
+              >你的邮件地址不会被共享给他人</small
             >
           </div>
-          <button type="submit" class="btn btn-info">Submit</button>
+          <button type="submit" class="btn btn-info">提交</button>
         </form>
       </div>
     </div>
@@ -49,21 +49,12 @@
   <div class="container">
     <div class="row text-left">
       <div class="col-md-4">
-        <a id="theme" href="https://github.com/hossainemruz/toha" target="#">
+        <a id="theme" href="/" target="#">
           <img src="/assets/images/logo-inverted.png">
-          Toha
+          青云卷
         </a>
       </div>
       <div class="col-md-4">{{ if .Site.Params.copyright }}{{ .Site.Params.copyright }}{{ else }}© 2020 Copyright.{{ end }}</div>
-      <div class="col-md-4">
-        Powered by <a href="https://gohugo.io/">Hugo
-        <img
-          src="/assets/images/hugo-logo-wide.svg"
-          alt="Hugo Logo"
-          height="18"
-        />
-        </a>
-      </div>
     </div>
   </div>
 </footer>

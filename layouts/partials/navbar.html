@@ -17,13 +17,13 @@
     <div class="collapse navbar-collapse" id="top-nav-items">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link smooth-scroll" href="#home">Home</a>
+          <a class="nav-link smooth-scroll" href="#home">主页</a>
         </li>
         {{- if .Site.Data.sections }}
           {{- range sort .Site.Data.sections "section.weight" }}
             {{ if and (.section.enable) (.section.showOnNavbar)}}
               <li class="nav-item">
-                <a class="nav-link smooth-scroll" href="#{{ replace (lower .section.name) " " "-" }}">{{ .section.name }}</a>
+                <a class="nav-link smooth-scroll" href="#{{ replace (lower .section.name) " " "-" }}">{{ .section.title }}</a>
               </li>
             {{ end }}
           {{- end }}
@@ -39,7 +39,7 @@
         {{ end }}
         {{ if site.Params.enableBlogPost }}
           <li class="nav-item">
-            <a class="nav-link" id="blog-link" href="/posts">Posts</a>
+            <a class="nav-link" id="blog-link" href="/posts">文章</a>
           </li>
         {{ end }}
         {{ range site.Params.customMenus }}
