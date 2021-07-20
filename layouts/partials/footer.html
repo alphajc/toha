@@ -51,10 +51,10 @@
       <div class="col-md-4">
         <a id="theme" href="/" target="#">
           <img src="/assets/images/logo-inverted.png">
-          青云卷
+          {{- .Site.Title -}}
         </a>
       </div>
-      <div class="col-md-4">{{ if .Site.Params.copyright }}{{ .Site.Params.copyright }}{{ else }}© 2020 Copyright.{{ end }}</div>
+      <div class="col-md-4">{{ if .Site.Params.copyright }}{{ if .Site.Params.record }}<a href="https://beian.miit.gov.cn">{{ .Site.Params.record }}</a>{{ end  }}{{ .Site.Params.copyright }}{{ else }}© 2020 Copyright.{{ end }}</div>
     </div>
   </div>
 </footer>
